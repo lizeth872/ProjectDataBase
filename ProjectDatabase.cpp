@@ -3,6 +3,7 @@
 //
 
 #include "iostream"
+#include <iomanip>
 using namespace std;
 
 
@@ -14,14 +15,61 @@ struct Employers
             int salary;
             char dpt[3];
             int year_income;
-        }employ[6] ={{"SACV750524", "Veronica", "Sanchez", 6000, "A1", 2004},
-                      {"HEFC790926", "Carlos", "Hernandez", 8000, "A2", 2003},
-                     {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003},
-                     {"ROA0740114", "Oscar", "Romero", 8000, "A1", 2002},
-                     {"FORG760206", "German", "Flores", 12000, "A1", 2002},
-                     {"PEVN780704", "Noe", "Perez", 15000, "A3", 2002}};
+            int age;
+        }employ[6] ={{"SACV750524", "Veronica", "Sanchez", 6000, "A1", 2004, 34},
+                      {"HEFC790926", "Carlos", "Hernandez", 8000, "A2", 2003, 18},
+                     {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003, 22},
+                     {"ROA0740114", "Oscar", "Romero", 8000, "A1", 2002, 14},
+                     {"FORG760206", "German", "Flores", 12000, "A1", 2002, 80},
+                     {"PEVN780704", "Noe", "Perez", 15000, "A3", 2002, 22}};
 
+void selection()
+{
+    start:
+    ::system("clear");
+    int option;
+    cout<<"\n\t******* Here you can choose examples of selection algorithm ********\n";
+    cout<<"1. Age>15\n2. 8000 < Salary < 15000\n3. Year Income = 2002\n\nYour option: "; cin>>option;
+    switch (option) {
+        case 1:
+            cout<<left<<setw(13)<<"RFC"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"Last_Name"
+            <<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Year_Income"<<left<<setw(3)<<"age"
+            <<endl;
+            for (auto & i: employ)
+            {
+                if (i.age > 15)
+                {
+                    cout<<left<<setw(13)<<i.rfc<<left<<setw(11)<<i.name<<left<<setw(11)<<i.last_name<<left
+                    <<setw(8)<<i.salary<<left<<setw(5)<<i.dpt<<left<<setw(14)<<i.year_income<<left
+                    <<setw(3)<<i.age<<endl;
+                }
+            }
+            break;
+        case 2:
+            for (auto & i : employ)
+            {
+                if(i.salary>=8000 and i.salary<=20000)
+                {
+                    cout<<left<<setw(13)<<i.rfc<<left<<setw(11)<<i.name<<left<<setw(11)<<i.last_name<<left
+                        <<setw(8)<<i.salary<<left<<setw(5)<<i.dpt<<left<<setw(14)<<i.year_income<<left
+                        <<setw(3)<<i.age<<endl;
+                }
+            }break;
+        case 3:
+            for (auto & i : employ) {
+                if (i.year_income == 2002)
+                {
+                    cout << left << setw(13) << i.rfc << left << setw(11) << i.name << left << setw(11) << i.last_name
+                         << left
+                         << setw(8) << i.salary << left << setw(5) << i.dpt << left << setw(14) << i.year_income << left
+                         << setw(3) << i.age << endl;
+                }
+            }break;
+    }
+    cout<<"\nDo you want to try other? 1.YES  2.NO: "; cin>>option;
+    if (option == 1){goto start;}
 
+}
 
 void proyection()
 {
@@ -92,13 +140,14 @@ void menu()
         cout<<"5. Diferencia"<<endl;
         cout<<"6. Interseccion"<<endl;
         cout<<"7. Reunion"<<endl;
-        cout<<"\n8. !!Exit!!"<<endl;
+        cout<<"8. !!Exit!!"<<endl;
 
-        cout<<"Your option here: "; cin>>option;
+        cout<<"\nYour option here: "; cin>>option;
         switch (option) {
             case 1:
                 proyection(); break;
-            case 2:;
+            case 2:
+                selection(); break;
             case 3:;
             case 4:;
             case 5:;
