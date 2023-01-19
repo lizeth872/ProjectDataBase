@@ -23,6 +23,21 @@ struct Employers
                      {"FORG760206", "German", "Flores", 12000, "A1", 2002, 80},
                      {"PEVN780704", "Noe", "Perez", 15000, "A3", 2002, 22}};
 
+struct department
+    {
+        int idDep;
+        char name[30];
+        int areaEdificio;
+    }departamento[6] ={{1,"Adminitracion", 1},
+                        {2,"Ventas",5},
+                        {3, "Compras",7},
+                        {4, "Produccion", 3},
+                        {5, "Finanzas", 9},
+                        {6, "Recursos Humanos", 4},};
+
+
+
+
 void selection()
 {
     start:
@@ -125,6 +140,26 @@ void proyection()
 
 }
 
+void productoCruz()
+{
+    start:
+    ::system("clear");
+    
+    cout<<"Producto Cartesiano \n"<<endl;
+    cout<<left<<setw(13)<<"RFC"<<left<<setw(5)<<"Name"<<left<<setw(11)<<"Last_Name"<<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Year_Incame"<<left<<setw(3)<<"age"<<left<<setw(5)<<"ID"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"AreaEdificio"<<endl;
+    for(auto & i : departamento)
+    {
+        for(auto & j : employ)
+        {
+            cout<<j.rfc<<" | "<<j.name<<" "<<j.last_name<<" | "<<j.salary<<" | "<<j.dpt<<" | "<<j.year_income<<" | "<<j.age<<" | "<<i.idDep<<" | "<<i.name<<" | "<<i.areaEdificio<<endl;
+        }
+    }
+
+    
+    
+    
+}
+
 void menu()
 {
     int option = 0;
@@ -149,6 +184,7 @@ void menu()
             case 2:
                 selection(); break;
             case 3:;
+                productoCruz(); break;
             case 4:;
             case 5:;
             case 6:;
