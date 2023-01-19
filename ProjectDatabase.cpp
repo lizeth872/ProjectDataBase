@@ -35,8 +35,17 @@ struct department
                         {5, "Finanzas", 9},
                         {6, "Recursos Humanos", 4},};
 
-
-
+struct newEmployers
+{
+    char rfc[11];
+    char name[30];
+    char last_name[30];
+    int salary;
+    char dpt[3];
+    int year_income;
+    int age;
+} newEmploy[6]={{"SACV750524", "Veronica", "Sanchez", 6000, "A1", 2004, 34},
+                {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003, 22},};
 
 void selection()
 {
