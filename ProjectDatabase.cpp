@@ -45,7 +45,11 @@ struct newEmployers
     int year_income;
     int age;
 } newEmploy[6]={{"SACV750524", "Veronica", "Sanchez", 6000, "A1", 2004, 34},
-                {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003, 22},};
+                {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003, 22},
+                {"FLPM981296", "Mateo", "Flores", 15000, "A3", 2010, 24},
+                {"JIGA930211", "Ana", "Jimenez", 20000, "A1", 2000, 30},
+                {"HEPC901003", "Carlos", "Hernandez", 15000, "A2", 2004, 39},
+                {"LOFO211209", "Oscar", "Lopez", 15000, "A3", 2004, 27}};
 
 void selection()
 {
@@ -164,9 +168,29 @@ void productoCruz()
         }
     }
 
+
     
     
+}
+
+void unionn(){
+    start:
+    ::system("clear");
+    cout<< "\n-------------------- UNION ---------------------\n"<<endl;
+
+    if(i.name = j.name && i.last_name=j.last_name){
+        cout<<i.name<<" | "<<i.last_name<<endl;
+    }
     
+    for(auto & i : employ){
+        for(auto & j: newEmploy){
+            if(i.name = j.name){
+                cout<<i.name<<" | "<<i.last_name<<endl;
+            }
+        }
+    }
+
+
 }
 
 void menu()
@@ -195,6 +219,7 @@ void menu()
             case 3:;
                 productoCruz(); break;
             case 4:;
+                unionn(); break;
             case 5:;
             case 6:;
             case 7:;
